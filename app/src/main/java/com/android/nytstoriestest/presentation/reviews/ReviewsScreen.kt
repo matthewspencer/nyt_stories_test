@@ -21,7 +21,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 
 @Composable
 fun ReviewScreen(
-    viewModel: ReviewViewModel = hiltViewModel()
+    viewModel: ReviewViewModel = ReviewViewModel()
 ) {
     val state = viewModel.state.value
 

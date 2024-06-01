@@ -66,14 +66,14 @@ dependencies {
 
 
     // Retrofit 2
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 
     // Dagger Hilt
-    implementation("com.google.dagger:hilt-android:2.50")
-    implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
-    implementation ("com.google.dagger:dagger-android-support:2.42")
-    annotationProcessor("com.google.dagger:hilt-android-compiler:2.44")
+    implementation(libs.hilt.android)
+    implementation (libs.androidx.hilt.navigation.compose)
+    implementation (libs.dagger.android.support)
+    annotationProcessor(libs.hilt.android.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

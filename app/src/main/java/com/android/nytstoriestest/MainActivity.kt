@@ -11,7 +11,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.android.nytstoriestest.presentation.reviews.ReviewScreen
+import com.android.nytstoriestest.presentation.reviews.ReviewViewModel
 import com.android.nytstoriestest.ui.theme.NYTStoriesTestTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,7 +27,12 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             NYTStoriesTestTheme {
-                ReviewScreen()
+                val navController = rememberNavController()
+                NavHost(navController = navController, startDestination = "Home" ) {
+                    composable(route = "Home") {
+                        ReviewScreen()
+                    }
+                }
             }
         }
     }

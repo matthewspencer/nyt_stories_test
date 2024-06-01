@@ -20,14 +20,15 @@ import com.android.nytstoriestest.presentation.reviews.ReviewViewModel
 import com.android.nytstoriestest.ui.theme.NYTStoriesTestTheme
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+//        enableEdgeToEdge()
         setContent {
             NYTStoriesTestTheme {
                 val navController = rememberNavController()
+
                 NavHost(navController = navController, startDestination = "Home" ) {
                     composable(route = "Home") {
                         ReviewScreen()

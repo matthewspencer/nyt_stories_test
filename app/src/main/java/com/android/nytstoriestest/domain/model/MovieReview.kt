@@ -1,14 +1,13 @@
 package com.android.nytstoriestest.domain.model
 
-import com.google.gson.annotations.SerializedName
-import java.util.Date
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
-
-data class Review(
+data class MovieReview(
     val title: String,
     val abstract: String,
     val byline: String,
-    @SerializedName(value = "published_date") val publishedDate: String,
+    @Json(name = "published_date") val publishedDate: String,
     val multimedia: Multimedia
 )
 

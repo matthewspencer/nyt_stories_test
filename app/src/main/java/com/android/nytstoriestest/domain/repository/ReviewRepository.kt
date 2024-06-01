@@ -1,10 +1,10 @@
 package com.android.nytstoriestest.domain.repository
 
-import com.android.nytstoriestest.domain.model.Review
+import com.android.nytstoriestest.domain.model.MovieReview
 import kotlinx.coroutines.flow.Flow
 
 interface ReviewRepository {
 
-    fun getReviews(): Flow<List<Review>>
+    fun getReviews(): Flow<List<MovieReview>>
 
 }

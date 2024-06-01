@@ -1,8 +1,7 @@
 package com.android.nytstoriestest.data.data_source
 
-import com.android.nytstoriestest.domain.model.Review
-import kotlinx.coroutines.flow.Flow
+import com.android.nytstoriestest.domain.model.MovieReview
 
 data class ReviewResponse(
-    val results: Flow<List<Review>>
+    val results: List<MovieReview>
 )

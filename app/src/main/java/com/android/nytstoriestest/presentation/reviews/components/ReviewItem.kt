@@ -14,26 +14,26 @@ import com.android.nytstoriestest.domain.model.MovieReview
 
 @Composable
 fun ReviewItem(
-    review: MovieReview,
+    movieReview: MovieReview,
 ) {
     Surface {
         Row(modifier = Modifier.padding(all = 8.dp)) {
-
+            Text(text = movieReview.getFirstImageUrl()?: "error loading")
         }
 
         Spacer(modifier = Modifier.padding(all = 8.dp))
 
         Column {
-            Text(text = review.title )
+            Text(text = movieReview.title )
 
-            Text(text = review.abstract)
+            Text(text = movieReview.abstract)
 
-            Text(text = review.byline)
+            Text(text = movieReview.byline)
 
             Row {
-                Text(text = review.publishedDate)
+                Text(text = movieReview.publishedDate)
 
-                Text(text = review.publishedDate)
+                Text(text = movieReview.publishedDate)
 
                 Button(onClick = { /*TODO*/ }) {
 

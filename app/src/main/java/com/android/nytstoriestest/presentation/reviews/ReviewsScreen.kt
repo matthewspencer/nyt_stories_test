@@ -13,7 +13,7 @@ fun ReviewScreen(
 
     LazyColumn {
         items(state.reviews) { review ->
-            ReviewItem(review = review)
+            ReviewItem(movieReview = review)
         }
     }
 }

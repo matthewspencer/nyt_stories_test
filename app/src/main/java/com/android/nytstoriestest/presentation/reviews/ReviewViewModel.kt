@@ -4,6 +4,8 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.android.nytstoriestest.domain.model.MovieReview
+import com.android.nytstoriestest.domain.model.Multimedia
 import com.android.nytstoriestest.domain.use_cases.GetReviews
 import com.android.nytstoriestest.domain.use_cases.ReviewUseCases
 import kotlinx.coroutines.flow.onEach
@@ -21,12 +23,8 @@ class ReviewViewModel () : ViewModel() {
 
     private fun getReviews() {
         viewModelScope.launch {
-            reviewUseCases.getReviews().onEach {
-                reviewUseCases.getReviews()
-                    .collect {
-                        _state.value = _state.value.copy(reviews = it)
-                    }
-            }
+            val data = reviewUseCases.getReviews()
+            _state.value = _state.value.copy(reviews = data)
         }
     }
 }

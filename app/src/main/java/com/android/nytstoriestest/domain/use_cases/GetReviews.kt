@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 class GetReviews(
     private val repository: ReviewRepository = ReviewRepositoryImpl()
 ) {
-    operator fun invoke(): Flow<List<MovieReview>> {
+    suspend operator fun invoke(): List<MovieReview> {
         return repository.getReviews()
     }
 

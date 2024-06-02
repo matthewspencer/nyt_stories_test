@@ -5,6 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface ReviewRepository {
 
-    fun getReviews(): Flow<List<MovieReview>>
+    suspend fun getReviews(): List<MovieReview>
 
 }

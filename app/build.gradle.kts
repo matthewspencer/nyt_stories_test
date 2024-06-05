@@ -62,16 +62,21 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 
+    // Pull to refresh
+    implementation("dev.materii.pullrefresh:pullrefresh:1.4.0-beta02")
 
+    // Coil
+    implementation("io.coil-kt:coil-compose:2.6.0")
 
-    //retrofit
+    // Retrofit 2
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
     implementation("com.squareup.okhttp3:okhttp:4.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
 
-    //moshi
+    // Moshi
     implementation ("com.squareup.moshi:moshi-kotlin:1.14.0")
     implementation ("com.squareup.moshi:moshi:1.14.0")
     kapt ("com.squareup.moshi:moshi-kotlin-codegen:1.14.0")

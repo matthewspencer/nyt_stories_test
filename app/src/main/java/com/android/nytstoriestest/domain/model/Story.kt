@@ -1,9 +1,8 @@
 package com.android.nytstoriestest.domain.model
 
 import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
 
-data class MovieReview(
+data class Story(
 
     val title: String,
     val abstract: String,

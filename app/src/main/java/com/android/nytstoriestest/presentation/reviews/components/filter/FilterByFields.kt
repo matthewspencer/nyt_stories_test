@@ -1,6 +1,9 @@
 package com.android.nytstoriestest.presentation.reviews.components.filter
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.runtime.Composable
@@ -17,10 +20,18 @@ fun FilterByFields(viewModel: StoryViewModel) {
     val value = viewModel.searchText.collectAsState().value
 
     OutlinedTextField(
-        modifier = Modifier.height(48.dp),
+        modifier = Modifier
+            .height(48.dp)
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp),
         value = value,
-        onValueChange = {viewModel.updateTextSearch(it)},
-        leadingIcon = { Icon(painter = painterResource(id = R.drawable.search), contentDescription = "") },
+        onValueChange = { viewModel.updateTextSearch(it) },
+        leadingIcon = {
+            Icon(
+                painter = painterResource(id = R.drawable.search),
+                contentDescription = ""
+            )
+        },
         maxLines = 1
     )
 }

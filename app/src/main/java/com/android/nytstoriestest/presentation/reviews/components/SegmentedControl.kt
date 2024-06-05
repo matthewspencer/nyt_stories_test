@@ -12,6 +12,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -22,6 +23,7 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.android.nytstoriestest.presentation.util.Segment
 
 @Composable
 fun SegmentedControl(
@@ -29,14 +31,21 @@ fun SegmentedControl(
     onSegmentSelected: (String)
 ) {
     val segments = listOf("Story", "Author")
-
-    val cornerRadius = 8.dp
-    val customShape = RoundedCornerShape(
-        topStart = cornerRadius,
-        topEnd = 0.dp,
-        bottomStart = cornerRadius,
-        bottomEnd = 0.dp
+    val circleCorner = 8.dp
+    val squareCorner = 0.dp
+    val storyButtonShape = RoundedCornerShape(
+        topStart = circleCorner,
+        topEnd = squareCorner,
+        bottomStart = circleCorner,
+        bottomEnd = squareCorner
     )
+    val authorButtonShape = RoundedCornerShape(
+        topStart = squareCorner,
+        topEnd = circleCorner,
+        bottomStart = squareCorner,
+        bottomEnd = circleCorner
+    )
+
 
     Row(
         modifier = Modifier.padding(horizontal = 8.dp)
@@ -44,14 +53,14 @@ fun SegmentedControl(
 
         segments.forEach { segment ->
             val isSelected = segment == selectedSegmentName
-                TextButton(
+                OutlinedButton(
                     modifier = Modifier
                         .weight(1f)
                         .height(32.dp)
                         .clip(RoundedCornerShape(8.dp)),
                     onClick = { onSegmentSelected },
                     colors = changeButtonColors(isSelected),
-                    shape = customShape,
+                    shape = if (segment == Segment.StorySegment.title) storyButtonShape else authorButtonShape,
                     contentPadding = PaddingValues(
                         horizontal = 16.dp,
                         vertical = 8.dp

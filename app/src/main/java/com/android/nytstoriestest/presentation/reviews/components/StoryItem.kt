@@ -18,6 +18,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.android.nytstoriestest.domain.model.Story
+import com.android.nytstoriestest.domain.util.DateFormatter
+
 private const val TAG = "StoryItem"
 
 @Composable
@@ -48,6 +50,7 @@ fun StoryItem(
                 modifier = Modifier.height(itemHeight.dp),
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
+                val date = DateFormatter.DateFormatter(stories.publishedDate)
                 Text(
                     text = stories.title,
                     maxLines = 2,
@@ -67,9 +70,11 @@ fun StoryItem(
 
                 Text(
                     modifier = Modifier,
-                    text = stories.publishedDate,
+                    text = date,
                     style = MaterialTheme.typography.bodySmall
                 )
+
+                Log.d(TAG, "StoryItem: ${stories.publishedDate}")
             }
         }
     }

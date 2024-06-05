@@ -1,11 +1,13 @@
 package com.android.nytstoriestest.domain.util
 
-/*
-object DateFormatter {
-    fun DateFormatter(storie: Storie): String {
-        val date = storie.publishedDate
-        val inputFormat = SimpleDateFormat("yyyy-MM-DD")
-        val parsedDate = inputFormat.parse(date)
+import com.android.nytstoriestest.domain.model.Story
+import java.text.SimpleDateFormat
 
+object DateFormatter {
+    fun DateFormatter(date: String): String {
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX")
+        val outputFormat = SimpleDateFormat("yyyy/MM/dd      hh:MM:ss")
+        val date = inputFormat.parse(date)
+        return outputFormat.format(date)
     }
-}*/
+}
